@@ -2,6 +2,9 @@ package co.edu.unal.software_engineering.labs.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.util.List;
 
 
@@ -30,6 +33,7 @@ public class Role implements Serializable{
 
     //bi-directional many-to-many association to User
     @ManyToMany( mappedBy = "roles" )
+    @JsonBackReference
     private List<User> users;
 
     /**
